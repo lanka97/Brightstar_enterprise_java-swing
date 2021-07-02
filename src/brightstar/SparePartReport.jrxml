@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SparePartReport" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="75f65841-aeff-40a6-9261-1063883ad4f2">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     sparepart_stock.`partname` AS sparepart_stock_partname,
+     sparepart_stock.`partnumber` AS sparepart_stock_partnumber,
+     sparepart_stock.`brand` AS sparepart_stock_brand,
+     sparepart_stock.`model` AS sparepart_stock_model,
+     sparepart_stock.`unitprice` AS sparepart_stock_unitprice,
+     sparepart_stock.`quantity` AS sparepart_stock_quantity,
+     sparepart_stock.`a_quantity` AS sparepart_stock_a_quantity
+FROM
+     `sparepart_stock` sparepart_stock]]>
+	</queryString>
+	<field name="sparepart_stock_partname" class="java.lang.String"/>
+	<field name="sparepart_stock_partnumber" class="java.lang.String"/>
+	<field name="sparepart_stock_brand" class="java.lang.String"/>
+	<field name="sparepart_stock_model" class="java.lang.String"/>
+	<field name="sparepart_stock_unitprice" class="java.lang.String"/>
+	<field name="sparepart_stock_quantity" class="java.lang.String"/>
+	<field name="sparepart_stock_a_quantity" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<image>
+				<reportElement x="275" y="0" width="300" height="64" uuid="0115c85d-12a5-4175-ad09-91d792f13602"/>
+				<imageExpression><![CDATA["leaf_banner_green.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="0" y="13" width="263" height="33" uuid="3b0c9960-5898-47c3-afac-244a9f0bd90e"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Leaf Green Title]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="100" y="46" width="174" height="22" uuid="f67952b8-45e7-489d-9977-0ae8614a2b2a"/>
+				<text><![CDATA[Leaf Green SubTitle]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="0d03502c-f5eb-4066-bec9-16723a98c76a"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="79" height="15" uuid="4898385a-4355-4dfc-bca4-c3b5cfdc710a"/>
+				<text><![CDATA[PartName]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="79" y="19" width="79" height="15" uuid="69a7581b-fc01-40da-b6a9-750b4c022c3d"/>
+				<text><![CDATA[Partnumber]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="158" y="19" width="79" height="15" uuid="01ce9ed3-3d5b-4e4a-a827-e453b2d32145"/>
+				<text><![CDATA[Brand]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="237" y="19" width="79" height="15" uuid="d66b7d20-5519-4cf2-ba9b-a060d74eeaf0"/>
+				<text><![CDATA[Model]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="316" y="19" width="79" height="15" uuid="e6ed684a-61c2-4655-99a2-9a431dc8871b"/>
+				<text><![CDATA[Unitprice]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="395" y="19" width="79" height="15" uuid="6e541c17-6615-468f-8959-0433f78e3a9a"/>
+				<text><![CDATA[quantity]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="474" y="19" width="79" height="15" uuid="87b448ca-b51b-46b1-ae75-2373366f71c0"/>
+				<text><![CDATA[a_quantity]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="8f061e0e-b300-45eb-bcb0-7156e165541c"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="79" height="15" uuid="841e4a66-5bb8-4991-84cb-47c75de7264b"/>
+				<textFieldExpression><![CDATA[$F{sparepart_stock_partname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="79" y="0" width="79" height="15" uuid="8feb5d93-5350-4559-90ae-0e265bd4b156"/>
+				<textFieldExpression><![CDATA[$F{sparepart_stock_partnumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="158" y="0" width="79" height="15" uuid="600176c5-8721-431b-8548-86eaa2b5e7fc"/>
+				<textFieldExpression><![CDATA[$F{sparepart_stock_brand}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="237" y="0" width="79" height="15" uuid="9dcd8971-af1c-4d36-9eab-44202ab07f13"/>
+				<textFieldExpression><![CDATA[$F{sparepart_stock_model}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="316" y="0" width="79" height="15" uuid="81ac0d2e-d2b9-4954-8bed-b1065ffdb487"/>
+				<textFieldExpression><![CDATA[$F{sparepart_stock_unitprice}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="395" y="0" width="79" height="15" uuid="8cc23939-a86b-4c05-bebf-b3b9264992f7"/>
+				<textFieldExpression><![CDATA[$F{sparepart_stock_quantity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="474" y="0" width="79" height="15" uuid="fb3e5cb3-acfc-47f4-af4b-91727f3bd5c3"/>
+				<textFieldExpression><![CDATA[$F{sparepart_stock_a_quantity}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="4da37f47-cd61-4729-8003-c3af3af5df3f"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="1bb94b55-7601-48bd-8a99-4e8991a03b0c"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="f6a2d7a8-7516-42bb-a6ef-5353fb58cfce"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="a42a737d-6881-4e2a-8fc6-39b9911149ac"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
